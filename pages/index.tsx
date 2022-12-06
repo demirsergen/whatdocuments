@@ -1,18 +1,23 @@
 import Head from 'next/head';
-import styles from '../styles/Home.module.css';
+import type { NextPage } from 'next';
+import Form from '../components/Form';
 
-export default function Home() {
+const Home: NextPage = () => {
   return (
-    <div className={styles.container}>
+    <div>
       <Head>
         <title>Create Next App</title>
         <meta name="description" content="WhatDocuments App" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main></main>
+      <main>
+        <Form />
+      </main>
 
       <footer></footer>
     </div>
   );
-}
+};
+
+export default Home;
