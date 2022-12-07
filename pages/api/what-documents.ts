@@ -1,4 +1,3 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from 'next';
 const { Configuration, OpenAIApi } = require('openai');
 
@@ -19,10 +18,10 @@ export default async function handler(
   const { application, state } = req.body;
 
   const response = await openai.createCompletion({
-    model: 'text-curie-001',
-    prompt: `What documents do I need for ${application} in ${state}? Use bullet points, keep it short.`,
+    model: 'text-davinci-003',
+    prompt: `What documents do I need for ${application} in ${state}? Use bullet points, keep it short but thorough.`,
     temperature: 0.7,
-    max_tokens: 132,
+    max_tokens: 150,
     top_p: 1,
     frequency_penalty: 0,
     presence_penalty: 0,

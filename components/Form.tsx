@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import DocumentList from './DocumentList';
 
 const Form = () => {
   const [application, setApplication] = useState('');
@@ -15,9 +16,10 @@ const Form = () => {
       },
       body: JSON.stringify({ application, state }),
     });
-    const data: string = await response.json();
-    setDocumentList(data);
-    console.log(data);
+    const data: { result: string } = await response.json();
+    setDocumentList(data.result);
+    setState('');
+    setApplication('');
   };
 
   return (
@@ -58,9 +60,13 @@ const Form = () => {
           Submit
         </button>
       </form>
-      <div>
-        <p className="text-white">{documentList}</p>
-      </div>
+      {documentList && (
+        <DocumentList
+          documents={documentList}
+          state={state}
+          application={application}
+        />
+      )}
     </div>
   );
 };
