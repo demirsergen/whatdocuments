@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import type { NextPage } from 'next';
-import Form from '../components/Form';
+import LoginPage from './auth/login';
 
 const Home: NextPage = () => {
   return (
@@ -12,7 +12,7 @@ const Home: NextPage = () => {
       </Head>
 
       <main>
-        <Form />
+        <LoginPage />
       </main>
 
       <footer></footer>
