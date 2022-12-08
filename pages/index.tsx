@@ -1,10 +1,9 @@
 import Head from 'next/head';
 import type { NextPage } from 'next';
 import LoginPage from './auth/login';
-import clientPromise from '../mongodb/lib/mongodb';
+import clientPromise from '../lib/mongodb';
 
-const Home: NextPage = ({ users }) => {
-  console.log(users);
+const Home: NextPage = () => {
   return (
     <div>
       <Head>
@@ -24,15 +23,15 @@ const Home: NextPage = ({ users }) => {
 
 export default Home;
 
-export async function getServerSideProps(context) {
-  const client = await clientPromise;
+// export async function getServerSideProps(context) {
+//   const client = await clientPromise;
 
-  const db = client.db('nextjs-openai-demo');
+//   const db = client.db('nextjs-openai-demo');
 
-  let users = await db.collection('users').find({}).toArray();
-  users = JSON.parse(JSON.stringify(users));
+//   let users = await db.collection('users').find({}).toArray();
+//   users = JSON.parse(JSON.stringify(users));
 
-  return {
-    props: { users },
-  };
-}
+//   return {
+//     props: { users },
+//   };
+// }

@@ -1,18 +1,14 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
 
 const LoginPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const router = useRouter();
-
-  const handleLogin = (email: string, password: string) => {};
   return (
     <form
-      action=""
-      onSubmit={() => handleLogin(email, password)}
+      action="/api/login"
+      method="post"
       className="py-8 px-4 w-full bg-teal-50 md:w-1/2 lg:w-1/3 mx-auto rounded"
     >
       <div>

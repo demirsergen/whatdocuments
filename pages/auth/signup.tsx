@@ -1,17 +1,17 @@
 import React, { useState } from 'react';
+
 import Link from 'next/link';
 
 const SignupPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
-  const handleSignup = () => {
-    if (password !== confirmPassword) return;
-  };
+  const [message, setMessage] = useState('');
+
   return (
     <form
-      action=""
-      onSubmit={handleSignup}
+      action="/api/register"
+      method="post"
       className="py-8 px-4 w-full bg-teal-50 md:w-1/2 lg:w-1/3 mx-auto rounded"
     >
       <div>
@@ -59,6 +59,7 @@ const SignupPage = () => {
       >
         Login
       </button>
+      <span>{message}</span>
       <div>
         <Link href="/" className="block text-center">
           Already have an account?

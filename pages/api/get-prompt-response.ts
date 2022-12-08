@@ -7,19 +7,18 @@ const configuration = new Configuration({
 const openai = new OpenAIApi(configuration);
 
 type Data = {
-  application: string;
-  state: string;
+  prompt: string;
 };
 
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>
 ) {
-  const { application, state } = req.body;
+  const { prompt } = req.body;
 
   const response = await openai.createCompletion({
     model: 'text-davinci-003',
-    prompt: `What documents do I need for ${application} in ${state}? Use bullet points, keep it short but thorough.`,
+    prompt: `I'm going to give you a prompt and I need you to explain it like I'm a 10 year old kid. Make it funny and interesting. Prompt:${prompt}`,
     temperature: 0.7,
     max_tokens: 150,
     top_p: 1,
