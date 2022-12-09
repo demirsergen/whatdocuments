@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import type { NextPage } from 'next';
 import LoginPage from './auth/login';
-import clientPromise from '../lib/mongodb';
+import clientPromise from '../../server/lib/mongodb';
 
 const Home: NextPage = () => {
   return (
