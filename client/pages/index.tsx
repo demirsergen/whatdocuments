@@ -3,6 +3,7 @@ import type { NextPage } from 'next';
 import LoginPage from './auth/login';
 
 const Home: NextPage = () => {
+  // work on this.
   return (
     <div>
       <Head>
